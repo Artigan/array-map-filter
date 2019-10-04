@@ -41,11 +41,34 @@ En sortie: [
 ]
 
  */
+const words = [
+  {
+    food: "Bacon",
+    isVegetarian: false
+  },
+  {
+    food: "Sausage",
+    isVegetarian: false
+  },
+  {
+    food: "Tofu",
+    isVegetarian: true
+  },
+  {
+    food: "Chick Pea",
+    isVegetarian: true
+  }
+];
 
-function getFoodCategories(foods) {
-}
+const getFoodCategories = word => {
+  if (words.isVegetarian === false) {
+    return words.map(word => `${word.food} is not suitable for vegetarians`);
+  } else {
+    return words.map(word => `${word.food} is suitable for vegetarians`);
+  }
+};
 
-
+console.log(getFoodCategories(words));
 
 // Ne pas modifier l'export
 module.exports = getFoodCategories;
