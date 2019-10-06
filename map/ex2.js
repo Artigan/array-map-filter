@@ -41,7 +41,7 @@ En sortie: [
 ]
 
  */
-const words = [
+const wtest = [
   {
     food: "Bacon",
     isVegetarian: false
@@ -60,15 +60,15 @@ const words = [
   }
 ];
 
-const getFoodCategories = word => {
-  if (words.isVegetarian === false) {
-    return words.map(word => `${word.food} is not suitable for vegetarians`);
-  } else {
-    return words.map(word => `${word.food} is suitable for vegetarians`);
-  }
+const getFoodCategories = foods => {
+  return foods.map(food2 =>
+    food2.isVegetarian
+      ? `${food2.food} is suitable for vegetarians`
+      : `${food2.food} is not suitable for vegetarians`
+  );
 };
 
-console.log(getFoodCategories(words));
+console.log(getFoodCategories(wtest));
 
 // Ne pas modifier l'export
 module.exports = getFoodCategories;

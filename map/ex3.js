@@ -14,25 +14,7 @@ une chaîne, dépendante de la valeur de rating :
 * Si `rating` est compris entre 60 et 75 (inclus), la valeur à attribuer à label sera "fresh".
 * Si `rating` est supérieur à 75, la valeur à attribuer à label sera "certified fresh".
 
-Exemple d'entrée:
-  [
-    {
-      name: 'Crazy Rich Asians',
-      rating: 93
-    },
-    {
-      name: 'Skyscraper',
-      rating: 46
-    },
-    {
-      name: 'Leave No Trace',
-      rating: 100
-    },
-    {
-      name: 'White Boy Rick',
-      rating: 60
-    }
-  ]
+
 En sortie:
   [
     {
@@ -59,10 +41,39 @@ En sortie:
 
  */
 
-function getMoviesFreshness(movies) {
-}
+const wtest = [
+  {
+    name: "Crazy Rich Asians",
+    rating: 93
+  },
+  {
+    name: "Skyscraper",
+    rating: 46
+  },
+  {
+    name: "Leave No Trace",
+    rating: 100
+  },
+  {
+    name: "White Boy Rick",
+    rating: 60
+  }
+];
 
+const getMoviesFreshness = movies => {
+  return movies.map(movie => {
+    if (movie.rating < 60) {
+      movie.label = "rotten";
+    } else if (movie.rating >= 60 && movie.rating <= 75) {
+      movie.label = "fresh";
+    } else {
+      movie.label = "certified fresh";
+    }
+    return movie;
+  });
+};
 
+console.log(getMoviesFreshness(wtest));
 
 // Ne pas modifier l'export
 module.exports = getMoviesFreshness;
